@@ -1,6 +1,6 @@
 {
   "name": "synonym",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Display synonyms for a word on your CLI",
   "main": "index.js",
   "bin": {

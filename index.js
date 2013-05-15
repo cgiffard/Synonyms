@@ -18,9 +18,15 @@ function lookupSynonyms(synonym) {
 	wordnet.lookup(synonym, function(results) {
 		console.log(synonym.yellow);
 		
-		var synonymList = results.reduce(function(prev,result) {
-			return prev.concat(result.synonyms)
-		},[]);
+		var synonymList =
+			results.reduce(function(prev,result) {
+				return prev.concat(result.synonyms)
+			},[])
+			.reduce(function(prev,cur) {
+				if (prev.indexOf(cur) >= 0) return prev;
+				return prev.concat([cur]);
+			},[])
+			.sort();
 		
 		console.log("\t" + synonymList.join(" ") + "\n");
 	});
